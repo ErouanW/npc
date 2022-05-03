@@ -41,6 +41,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	rm -f unit_tests
+	rm -f tests/*.o 
 	make -C lib/my/ fclean
 	make -C lib/file/ fclean
 
