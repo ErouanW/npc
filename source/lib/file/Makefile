@@ -5,26 +5,30 @@
 ## Makefile that compiles your libmy.
 ##
 
-SRC	=	create_file.c	\
-		read_file.c		\
-		write_in_file.c	\
+SRC	=	src/create_file.c	\
+		src/read_file.c		\
+		src/write_in_file.c
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	libfile.a
 
-CFLAGS += -g
+CFLAGS += -Wall -Wextra -Werror
+
+CPPFLAGS += -I./include
 
 all: $(NAME)
 
-$(NAME):	$(OBJ)
-	ar rc libfile.a *.o
-	cp myfile.h ../../include/myfile.h
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
+	cp include/myfile.h ../../include/myfile.h
 
 clean:
-	rm -f $(OBJ)
+	$(RM) -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

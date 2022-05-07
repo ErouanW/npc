@@ -5,29 +5,34 @@
 ## Makefile that compiles your libmy.
 ##
 
-SRC	=	my_putchar.c	\
-		my_putstr.c	\
-		my_strlen.c	\
-		my_strcmp.c	\
-		my_putnbr.c	\
-		my_getnbr.c
+SRC	=	src/my_putchar.c	\
+		src/my_putstr.c	\
+		src/my_strlen.c	\
+		src/my_strcmp.c	\
+		src/my_putnbr.c	\
+		src/my_getnbr.c	\
+		src/my_strtwa.c
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	libmy.a
 
-CFLAGS += -g
+CFLAGS += -Wall -Wextra -Werror
+
+CPPFLAGS += -I./include
 
 all: $(NAME)
 
 $(NAME):	$(OBJ)
-	ar rc libmy.a *.o
-	cp my.h ../../include/my.h
+	ar rc $(NAME) $(OBJ)
+	cp include/my.h ../../include/my.h
 
 clean:
-	rm -f $(OBJ)
+	$(RM) -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

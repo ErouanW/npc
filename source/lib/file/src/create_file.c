@@ -11,7 +11,7 @@
 #include <sys/types.h>
 #include "my.h"
 
-int create_file(char *file_name)
+int create_file(char const *file_name)
 {
     int fd = open(file_name, O_CREAT | O_WRONLY);
 

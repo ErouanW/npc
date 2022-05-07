@@ -12,10 +12,10 @@
 #include <sys/types.h>
 #include "my.h"
 
-int write_in_file(char *path, char *content)
+int write_in_file(char const *path, char const *content)
 {
     int fd = open(path, O_WRONLY);
-    size_t size;
+    int size = 0;
 
     if (fd == -1) {
         perror("open");
