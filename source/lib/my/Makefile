@@ -11,7 +11,8 @@ SRC	=	src/my_putchar.c	\
 		src/my_strcmp.c	\
 		src/my_putnbr.c	\
 		src/my_getnbr.c	\
-		src/my_strtwa.c
+		src/my_strtwa.c	\
+		src/my_strcat.c
 
 OBJ	=	$(SRC:.c=.o)
 
