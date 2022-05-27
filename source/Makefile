@@ -36,10 +36,10 @@ $(LIB):
 	$(MAKE) -C lib/file/
 
 $(NAME): $(LIB) $(OBJ)
-	$(CC) -o $(NAME) $(OBJ)
+	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
 
 tests_run: $(LIB) $(OBJ) $(TOBJ)
-	$(CC) -o $(TEST_NAME) $(TEST_FLAGS) $(TEST_OBJ)
+	$(CC) -o $(TEST_NAME) $(TEST_FLAGS) $(TEST_OBJ) $(LDFLAGS)
 	./$(TEST_NAME)
 
 clean:

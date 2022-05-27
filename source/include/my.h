@@ -20,5 +20,7 @@ int my_strlen(char const *str);
 int my_strcmp(char const *s1 , char const *s2);
 long long int my_getnbr(char const *str);
 char **my_strtwa(char const *str, char const separator, int end);
+char *my_strcat(char const *src, char const *cat);
+void my_printf(char const *format, ...);
 
 #endif /* MY_H */

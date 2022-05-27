@@ -23,7 +23,7 @@ static int get_nbr_of_words(char const *str, char const separator, int end)
     return (nbr_of_words);
 }
 
-static int get_size_to_next_separator(char const *str, char const separator)
+static int next_separator(char const *str, char const separator)
 {
     int parse = 0;
 
@@ -42,8 +42,7 @@ char **my_strtwa(char const *str, char const separator, int end)
     if (array == NULL)
         return (NULL);
     for (int y = 0; y != nbr_of_words; y++) {
-        array[y] = malloc(
-            get_size_to_next_separator(&str[parse], separator) + 1);
+        array[y] = malloc(next_separator(&str[parse], separator) + 1);
         while (str[parse] != '\0' && str[parse] != separator) {
             array[y][stage] = str[parse];
             stage++;
